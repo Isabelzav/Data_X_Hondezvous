@@ -12,4 +12,5 @@ We teamed up with 99P Labs to work on building predictive models for dwell time 
 ### Objective:
 A crucial step towards our team’s success was approaching the problem through an entrepreneurial lens, not as data scientists and engineers; and doing so, we were able to start asking the right questions. We shifted our thinking from “Can we create a probability distribution for a car’s dwell time given a location?” to **“Can this service be fulfilled or not?”** We restructured our approach to the model implementations to predict a binary yes or no rather than an exact distribution. This switch in approach better fit what our service providers were looking for and helped us optimize accuracy.
 
-## 
+## Approach
+aaa

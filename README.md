@@ -20,14 +20,14 @@ A crucial step towards our team’s success was approaching the problem through 
 
 
 ## Files
-<b>Data<b>
+#### Data
 * Newdataset.csv
   Filter raw data
- <b>Data Cleaning and Processing<b>
+#### Data Cleaning and Processing
 * DataProcessing.ipynb
-* <b>Models<b>
+#### Models
 * Markov.ipynb
-<b>UI<b>
+#### UI
 * STREAMLIT-UI.ipynb
 * HONDEZVOUS_UI.py
   

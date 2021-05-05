@@ -1,7 +1,7 @@
 # Data-X: Hondezvous x 99P Labs: Vehicle Destination & Dwell Time Prediction Project
 ## Project Overview:
 ### Value Proposition:
-**Give your car a new purpose.**
+#### **Give your car a new purpose.**
 
 Have you ever needed something delivered to you while you’re at work? Have you ever wanted your car repaired while you’re out at the movies? What about earning passive income from your parked car?
 

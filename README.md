@@ -1,5 +1,4 @@
-# Data-X: Hondezvous x 99P Labs: 
-# Vehicle Destination & Dwell Time Prediction Project
+# Data-X: Hondezvous x 99P Labs: Vehicle Destination & Dwell Time Prediction Project
 ## Project Overview:
 ### Value Proposition:
 **Give your car a new purpose.**

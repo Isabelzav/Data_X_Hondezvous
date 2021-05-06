@@ -38,10 +38,18 @@ A crucial step towards our team’s success was approaching the problem through 
 * Dwell_prediction.ipynb
 
 * Markov.ipynb
- * Used the prob140 data science  library from UC Berkeley's Data 140 course to implement some of the Markov predictions.
- * [Link to Prob 140 Github repository](https://github.com/prob140/prob140)#### UI
+  * Used the prob140 data science library from UC Berkeley's Data 140 course to implement some of the Markov predictions.
+  * [Link to Prob 140 Github repository](https://github.com/prob140/prob140)
+
+ #### UI
 
 * STREAMLIT-UI.ipynb
-
+  * This notebook installs Streamlit and generates the URL for our UI. Run through all the cells and copy the URL into the browser:
+```
+!curl -s http://localhost:4040/api/tunnels | python3 -c \
+    'import sys, json; print("Execute the next cell and the go to the following URL: " +json.load(sys.stdin)["tunnels"][0]["public_url"])'
+    Execute the next cell and the go to the following URL: https://e46b988f8aa4.ngrok.io
+```
 * HONDEZVOUS_UI.py
+  * THis python file 
   

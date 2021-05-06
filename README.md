@@ -44,11 +44,10 @@ A crucial step towards our team’s success was approaching the problem through 
  #### UI
 
 * STREAMLIT-UI.ipynb
-  * This notebook installs Streamlit and generates the URL for our UI. Run through all the cells and copy the URL into the browser:
-```
+  * This notebook installs Streamlit and generates the URL for our UI. Run through all the cells and copy the output URL into the browser:
+```python:
 !curl -s http://localhost:4040/api/tunnels | python3 -c \
-    'import sys, json; print("Execute the next cell and the go to the following URL: 
-    " +json.load(sys.stdin)["tunnels"][0]["public_url"])'
+    'import sys, json; print("Execute the next cell and the go to the following URL: " +json.load(sys.stdin)["tunnels"][0]["public_url"])'
 ```
 * HONDEZVOUS_UI.py
   * THis python file 

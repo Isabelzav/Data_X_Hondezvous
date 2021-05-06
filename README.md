@@ -44,11 +44,11 @@ A crucial step towards our team’s success was approaching the problem through 
  #### UI
 
 * STREAMLIT-UI.ipynb
-  * This notebook installs Streamlit and generates the URL for our UI. Run through all the cells and copy the output URL into the browser:
+  * This notebook installs Streamlit and generates the URL for our UI. Run through all the cells and copy the output URL of this cell into the browser:
 ```python:
 !curl -s http://localhost:4040/api/tunnels | python3 -c \
     'import sys, json; print("Execute the next cell and the go to the following URL: " +json.load(sys.stdin)["tunnels"][0]["public_url"])'
 ```
 * HONDEZVOUS_UI.py
-  * THis python file 
+  * THis python file takes input from our two individual models with the generated data frame. It plots the clusters of all the vehicles, and a sidebar to filter through data/time, car unique ID, and clusters. The filtered result will be ploted with the previous and predicted locations of the specific vehicles, as well as other information like the brand of the car and the predicted dewell time.
   

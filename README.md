@@ -1,7 +1,4 @@
-<div class="bg-blue-light mb-2">
-  .# Data-X: Hondezvous x 99P Labs: Vehicle Destination & Dwell Time Prediction Project
-
-</div>
+# Data-X: Hondezvous x 99P Labs: Vehicle Destination & Dwell Time Prediction Project
 
 ## Project Overview:
 ### Value Proposition:

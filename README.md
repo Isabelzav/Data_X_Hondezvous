@@ -17,7 +17,7 @@ A crucial step towards our team’s success was approaching the problem through 
 * Clustering/KNN Model for Dwell Time Prediction
   * Dataset containing Location (Latitude and Longitude), timestamp (UNIX), and dwell time duration (time elapsed between consecutive engine cycles) was used in this model.
   * A Density Based Spacial Clustering of Applications with Noise (DBScan) was applied to the dataset to generate a "network" of clusters. These clusters capture trends and patterns between time of day, location, and dwell time. Epsilon and Minimum Sample values for DBScan were identified through trial and error and a common-sense methodology.
-  * After these clusters were created, a KNN/XGboost model was trained and tuned to predict what cluster a new data-point (containing latitude, longitude, time of day) belongs to. That new point was then predicted to be the mode dwell-time of the cluster it was predicted to be in. 
+  * After these clusters were created, a KNN/XGboost model was trained and tuned to predict what cluster a new data-point (containing latitude, longitude, time of day) belongs to. That new point was then predicted the mode dwell-time of its predicted cluster. 
 * XGBoost for Dwell Time Prediction
   * Dataset containing Location (Latitude and Longitude), timestamp (UNIX), and dwell time duration (time elapsed between consecutive engine cycles) was used in this model 
   * An additional XGboost model was trained and tuned to solve a binary classification variation of our problem space - is the dwell time greater than 10 hours?
@@ -40,6 +40,10 @@ A crucial step towards our team’s success was approaching the problem through 
    * Towards the end of the Markov.ipynb notebook, we created a function that finds the top few location predictions for each vehicle and creates a dataframe with the vin, sequence, predicted latitude, predicted longitude, and probabilities to then add a column for dwell time predictions.
 #### Data Cleaning and Processing
 * DataProcessing.ipynb
+  * Raw data is event-based, pulled from cars' telemtry and navigation systems. Due to the nature of the event-based gathering system, the contained NaN-valued rows at a exceedingly high ratio to non-NaN valued rows. Data cleaning retention of 10%, meaning after sifting out NaNs we had 10% of the amount of data we started with. This required implementation of a pagination method to succesfully pull a large enough, cleaned dataset from Honda's API. Addtionaly geofencing was added into the pagination methodology to select trips that within the vicinity of Columbus, OH.
+  * The data was trip-based and recorded at a near milisecond interval, meaning a single car driving for an hour is 3.6e+6 rows of data. 
+  * The data was aggregated and logic was implemented to extract the start and end location of each trip sequence, and the time elapsed between engine cycles (difference in timestamp from last stop to next start) was calculated and named dwell time duration
+  * This aggregated data-set contained roughly 40 thousand records, each with a location, dwell time, and timestamp.
   * This notebook was used to preprocess all of our data straight from the 99PLabs API. Since we needed to deal with millions of rows of data, we didn’t initially have enough compute power through our collaborative notebook, so we followed these steps locally to filter the huge csv file with 35 million rows of data, narrow it down, and import it into the notebook to begin model implementation. The example shown in the notebook uses the original csv file we started off with, which included about 760,000 rows of data.
 
 

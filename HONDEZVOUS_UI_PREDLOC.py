@@ -9,8 +9,6 @@ import pydeck as pdk
 import plotly.graph_objects as go
 import plotly.express as px
 
-import KNNLite # slimmed down version of KNN for clusters 
-exec(open('KNNLite.py').read()) # run KNN Lite
 
 # read mapbox token
 mapbox_access_token = open(".mapbox_token").read()
@@ -36,7 +34,7 @@ with row1_1:
 
 with row1_2:
     st.subheader('Vehicle Clusters') # Vehicle cluster header
-    st.map(dbs_df) # Plot vehicle clusters  
+    st.map(df_clusters) # Plot vehicle clusters  
 
 
 today = datetime.date.today() # Defining today's date
@@ -54,7 +52,7 @@ vin_to_track = st.sidebar.selectbox(
 # Choose a cluster to view
 cluster_to_track = st.sidebar.selectbox(
     'Choose a cluster to track',
-    (dbs_df['dbs_cluster'].unique())
+    (df_clusters['dbs_cluster'].unique())
 )
 
 st.sidebar.subheader('New Filters Coming Soon:') # Set the sidebar subheader

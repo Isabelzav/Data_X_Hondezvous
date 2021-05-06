@@ -14,10 +14,17 @@ We teamed up with 99P Labs to work on building predictive models for dwell time 
 A crucial step towards our team’s success was approaching the problem through an entrepreneurial lens, not as data scientists and engineers; and doing so, we were able to start asking the right questions. We shifted our thinking from “Can we create a probability distribution for a car’s dwell time given a location?” to **“Can this service be fulfilled or not?”** We restructured our approach to the model implementations to predict a binary yes or no rather than an exact distribution. This switch in approach better fit what our service providers were looking for and helped us optimize accuracy.
 
 ## Approach
-* Clustering/KNN Model
+* Clustering/KNN Model for Dwell Time Prediction
+  * Dataset containing Location (Latitude and Longitude), timestamp (UNIX), and dwell time duration (time elapsed between consecutive engine cycles) was used in this model.
+  * A Density Based Spacial Clustering of Applications with Noise (DBScan) was applied to the dataset to generate a "network" of clusters. These clusters capture trends and patterns between time of day, location, and dwell time. Epsilon and Minimum Sample values for DBScan were identified through trial and error and a common-sense methodology.
+  * After these clusters were created, a KNN/XGboost model was trained and tuned to predict what cluster a new data-point (containing latitude, longitude, time of day) belongs to. That new point was then predicted the mode dwell-time of its predicted cluster. 
+* XGBoost for Dwell Time Prediction
+  * An additional XGboost model was trained and tuned to solve a binary classification variation of our problem space - is the dwell time greater than 10 hours?
+  * This model utilised the location and time of day to predict if a new datapoint will have a dwell time that is greater than 10 hours or not. I.e. will a car that just stopped be stationary for 10+ hours
+  * Highest accuracy model due to 10+ hour stops having a strong relationship with time of day and location.
 
 
-* Markov Model
+* Markov Model for Location Prediction
   * Markov models work by having a set of states, for which each pair of states i, j in the set has an associated probability of moving from state i to state j. To apply a Markov model to our data, we initially set location clusters as unique states in the Markov chain and calculated the probabilities of moving from the current location to a different location for each car. To process the data, we dropped all rows with no dwell time durations in order to only use completed trips, and kept latitude and longitude for only start and end locations.
   * For the model architecture, we first set a buffer in order to prevent an excessive amount of coordinates that were generally in the same area (e.g. driveway vs the street in front of a house) and grouped these locations under one state. After we found the set of all unique states (read: locations) a car visited, we wrote a transition function that calculates the probability of the car starting in location i and ending in location j for all locations in the set of states. To do this, we utilized the prob140 data science library, created for UC Berkeley’s Data140 course.
   * After we calculated the transition probabilities for every state, we wrote a function that took in a car’s ID number and returned the next most likely states, and their corresponding probabilities, given its last recorded state in the dataset.

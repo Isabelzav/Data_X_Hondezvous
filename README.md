@@ -53,6 +53,17 @@ A crucial step towards our team’s success was approaching the problem through 
 * Markov.ipynb
   * Used the prob140 data science library from UC Berkeley's Data 140 course to implement some of the Markov predictions.
   * [Link to Prob 140 Github repository](https://github.com/prob140/prob140)
+ 
+  The Markov Chain model has 3 key functions:
+   * vehicle_locations
+      * input: vehicle ID (string), table of all cars (dataframe)
+      * output: a dictionary of all locations that the unique car has been to, within a specified buffer
+   * make_markov_function
+      * input: vehicle ID (string), table of all cars (dataframe), all locations the car has been to (dictionary)
+      * output: a callable markov function that is compatible with the prob140 package
+   * get_all_locations
+      * input: vehicle ID (string), table of all cars (dataframe)
+      * output: a dataframe with columns for a car's next predicted location and associated probability
 
  #### UI
 

@@ -49,14 +49,30 @@ A crucial step towards our team’s success was approaching the problem through 
 
 #### Models
 * Dwell_prediction.ipynb
+  * Utilised Sklearn, XGBoost, matplotlib, Pandas, NumPy, Seaborn, GeoPandas
+  
+  Dwell Time Prediction model has X key functions:
+   * gen_dbs_clusters
+      * inputs: DataFrame containing location and dwell time interval, epsilon and min_samples values for DBSCAN
+      * output: DataFrame containing location, dwell time interval, associated DBS clusters
+   * plot_clusters
+      * inputs: DataFrame containing location, dwell time interval, associated DBS clusters
+      * output: Visualisation of created clusters on a geographic map
+   * gen_bins_pointwise
+      * inputs: df1 = DataFrame, containing lat,long, dwell time duration (seconds), minimum interval value, maximum interval value 
+      * output: A DataFrame containing location, dwell time interval, associated interval bins
+   * train_pred_model
+      * inputs: DataFrame containing location, dwell time interval, associated DBS clusters, two boolean flags (knn, svm)
+      * output: A trained prediction model with tuned hyperparameters to predict dbs_cluster, prints CV score
+   * predicted_cluster_vals
+      * inputs: DataFrame, containing lat, long, daylight, dbs_cluster and a trained prediction model
+      * output: DataFrame containing Lat,Long, predicted_cluster
+   * get_interval_pred
+      * inputs: DataFrame, containing lat, long, daylight, predicted DBS Cluster and a Dataframe containing true values
+      * output: DataFrame containing lat, long, dwell time interval, associated interval bins (Predictions for interval bins)
 
 * Markov.ipynb
   * Used the prob140 data science library from UC Berkeley's Data 140 course to implement some of the Markov predictions.
-  * In order to download these libraries, run the folowing commands:
-```python:
-pip install datascience
-pip install prob140
-```
   * [Link to Prob 140 Github repository](https://github.com/prob140/prob140)
  
   The Markov Chain model has 3 key functions:
@@ -80,4 +96,4 @@ pip install prob140
 ```
 * HONDEZVOUS_UI_PREDLOC.py
   * THis python file takes input from our two individual models with the generated data frame. It plots the clusters of all the vehicles, and has a sidebar to filter through vehicle IDs and clusters. The filtered result will be plotted with the predicted locations of the specific vehicles, as well as the binary predicted dewell time. Filtered results for clusters plots a map with that cluster and its coordinates.
-  * ![UI Layout](ui.png)
+  

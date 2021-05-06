@@ -62,6 +62,6 @@ A crucial step towards our team’s success was approaching the problem through 
 !curl -s http://localhost:4040/api/tunnels | python3 -c \
     'import sys, json; print("Execute the next cell and the go to the following URL: " +json.load(sys.stdin)["tunnels"][0]["public_url"])'
 ```
-* HONDEZVOUS_UI.py
+* HONDEZVOUS_UI_PREDLOC.py
   * THis python file takes input from our two individual models with the generated data frame. It plots the clusters of all the vehicles, and a sidebar to filter through data/time, car unique ID, and clusters. The filtered result will be ploted with the previous and predicted locations of the specific vehicles, as well as other information like the brand of the car and the predicted dewell time.
   

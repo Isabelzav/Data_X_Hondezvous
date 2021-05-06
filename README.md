@@ -52,6 +52,11 @@ A crucial step towards our team’s success was approaching the problem through 
 
 * Markov.ipynb
   * Used the prob140 data science library from UC Berkeley's Data 140 course to implement some of the Markov predictions.
+  * In order to download these libraries, run the folowing commands:
+```python:
+pip install datascience
+pip install prob140
+```
   * [Link to Prob 140 Github repository](https://github.com/prob140/prob140)
  
   The Markov Chain model has 3 key functions:

@@ -17,7 +17,7 @@ A crucial step towards our team’s success was approaching the problem through 
 * Clustering/KNN Model for Dwell Time Prediction
   * Dataset containing Location (Latitude and Longitude), timestamp (UNIX), and dwell time duration (time elapsed between consecutive engine cycles) was used in this model.
   * A Density Based Spacial Clustering of Applications with Noise (DBScan) was applied to the dataset to generate a "network" of clusters. These clusters capture trends and patterns between time of day, location, and dwell time. Epsilon and Minimum Sample values for DBScan were identified through trial and error and a common-sense methodology.
-  * After these clusters were created, a KNN/XGboost model was trained and tuned to predict what cluster a new data-point (containing latitude, longitude, time of day) belongs to. That new point was then predicted the mode dwell-time of its predicted cluster. 
+  * After these clusters were created, a KNN/XGboost model was trained and tuned to predict what cluster a new data-point (containing latitude, longitude, time of day) belongs to. That new point was then predicted to be the mode dwell-time of the cluster it was predicted to be in. 
 * XGBoost for Dwell Time Prediction
   * Dataset containing Location (Latitude and Longitude), timestamp (UNIX), and dwell time duration (time elapsed between consecutive engine cycles) was used in this model 
   * An additional XGboost model was trained and tuned to solve a binary classification variation of our problem space - is the dwell time greater than 10 hours?

@@ -19,6 +19,7 @@ A crucial step towards our team’s success was approaching the problem through 
   * A Density Based Spacial Clustering of Applications with Noise (DBScan) was applied to the dataset to generate a "network" of clusters. These clusters capture trends and patterns between time of day, location, and dwell time. Epsilon and Minimum Sample values for DBScan were identified through trial and error and a common-sense methodology.
   * After these clusters were created, a KNN/XGboost model was trained and tuned to predict what cluster a new data-point (containing latitude, longitude, time of day) belongs to. That new point was then predicted the mode dwell-time of its predicted cluster. 
 * XGBoost for Dwell Time Prediction
+  * Dataset containing Location (Latitude and Longitude), timestamp (UNIX), and dwell time duration (time elapsed between consecutive engine cycles) was used in this model 
   * An additional XGboost model was trained and tuned to solve a binary classification variation of our problem space - is the dwell time greater than 10 hours?
   * This model utilised the location and time of day to predict if a new datapoint will have a dwell time that is greater than 10 hours or not. I.e. will a car that just stopped be stationary for 10+ hours
   * Highest accuracy model due to 10+ hour stops having a strong relationship with time of day and location.

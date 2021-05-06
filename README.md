@@ -22,7 +22,9 @@ A crucial step towards our team’s success was approaching the problem through 
 ## Files
 #### Data
 * Newdataset.csv
-  Filter raw data
+  * This file contains about 47,000 rows of filtered data from the 99PLabs API. The original file contained about 35 million rows of raw data and was grouped by vin and sequence for each vehicle and trip in the original dataset. The timestamp column was converted into a datetime object in the form of seconds from milliseconds, and the dwell time calculations between the end of the previous trip and current trip were added into another separate column. With the data fully preprocessed, this csv file was used in both the Markov and dwell time prediction notebooks to proceed with model implementation.
+* Locationpredictions.csv
+  * Towards the end of the Markov.ipynb notebook, we created a function that finds the top few location predictions for each vehicle and creates a dataframe with the vin, sequence, predicted latitude, predicted longitude, and probabilities to then add a column for dwell time predictions.
 #### Data Cleaning and Processing
 * DataProcessing.ipynb
 #### Models

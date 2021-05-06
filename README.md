@@ -80,4 +80,4 @@ pip install prob140
 ```
 * HONDEZVOUS_UI_PREDLOC.py
   * THis python file takes input from our two individual models with the generated data frame. It plots the clusters of all the vehicles, and has a sidebar to filter through vehicle IDs and clusters. The filtered result will be plotted with the predicted locations of the specific vehicles, as well as the binary predicted dewell time. Filtered results for clusters plots a map with that cluster and its coordinates.
-  * ![UI Layout](ui.png) {width=50%}
+  * ![UI Layout](ui.png)
